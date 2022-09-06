@@ -1,0 +1,92 @@
+.card {
+  background: rgba(15, 15, 15, 0.35);
+  border: 1px solid #2B2B2B;
+  box-sizing: border-box;
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 280px;
+  transition: 0.2s linear;
+  @media (any-hover: hover) {
+    &:hover {
+      border-color: #FD4D7C;
+    }
+  }
+  &__body {
+    margin: 0 auto;
+  }
+  &__title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    color: #FFFFFF;
+    margin-bottom: 32px;
+  }
+}
+
+.list-card {
+  display: flex;
+  flex-direction: column;
+  justify-self: start;
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    &:not(:last-child) {
+      margin-bottom: 28px;
+    }
+  }
+  &__point {
+    margin-right: 12px;
+  }
+  &__text {
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    line-height: 11px;
+    @media (max-width: 768px) {
+      line-height: 15px;
+    }
+  }
+}
+
+.point-card-about {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  margin-right: 12px;
+  &__image {
+    &--2 {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transition: 0.2s linear;
+    }
+  }
+}
+
+.list-card-about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  &__item {
+    position: relative;
+    transition: 0.2s linear;
+    > span {
+      transition: 0.2s linear;
+    }
+    &:hover {
+      > span {
+        color: #FD4D7C;
+      }
+      .point-card-about {
+        &__image {
+          &--2 {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

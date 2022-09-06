@@ -1,0 +1,295 @@
+.header {
+  background: rgba(#0E0C0E, .7);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 11;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  animation: fade 2s 7.2s;
+  animation-fill-mode: forwards;
+  &.active {
+    .header__overlay {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+  &__burger {
+    @media (min-width: 769px) {
+      display: none;
+    }
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 18px;
+    cursor: url('../images/icons/cursor-hover.png') 10 8, auto;
+    z-index: 11;
+    span {
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #FD4D7C;
+      transition: 0.2s linear;
+      &:first-child {
+        top: 0;
+        transform: translateY(0);
+      }
+      &:last-child {
+        top: auto;
+        bottom: 0;
+        transform: translateY(0);
+      }
+    }
+    &.active {
+      span {
+        transform: scale(0);
+        &:first-child {
+          transform: rotate(-45deg);
+          top: calc(50% - 1px);
+        }
+        &:last-child {
+          transform: rotate(45deg);
+          bottom: calc(50% - 1px);
+        }
+      }
+    }
+    &.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+  &__container {
+    @include adaptive-value-to('height', 142, 66, 768);
+    @media (max-width: 768px) {
+      height: 66px;
+    }
+    @media (max-width: 768px) {
+      position: relative;
+    }
+  }
+  &__overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(1px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: 0.2s linear;
+  }
+  &__top {
+    position: absolute;
+    left: 40px;
+    top: 50px;
+    @media (min-width: 769px) {
+      display: none;
+    }
+    .header__phone {
+      display: flex;
+    }
+  }
+  &__body {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 768px) {
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: 10;
+      width: 80%;
+      height: 100%;
+      overflow-y: auto;
+      background: #151515;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-top: 150px;
+      padding-left: 60px;
+      transform: translateX(100%);
+      transition: 0.2s linear;
+    }
+    &.active {
+      transform: translateX(0%);
+    }
+  }
+  &__logo {
+    @include adaptive-value('width', 72, 42, 1);
+    @include adaptive-value('height', 39, 23, 1);
+    @media (min-width: 769px) {
+      transform: translateX(25px);
+    }
+    @media (max-width: 768px) {
+      position: absolute;
+      left: 20px;
+      transform: translateY(-50%);
+      top: 50%;
+    }
+    svg {
+      width: 100%;
+      height: 100%;
+      path {
+        transition: 0.2s linear;
+      }
+      @media (any-hover: hover) {
+        &:hover {
+          path {
+            fill: #d9426b !important;
+          }
+        }
+      }
+    }
+  }
+  &__col {
+    display: flex;
+    align-items: center;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  &__phone {
+    @media (max-width: 768px) {
+      display: none;
+    }
+    @include adaptive-value('width', 62, 30, 1);
+    @include adaptive-value('height', 62, 30, 1);
+    @include adaptive-value-to('margin-right', 90, 15, 768);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #D9426B;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.035em;
+    color: #FFFFFF;
+    transition: 0.2s linear;
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        background: #b32954;
+      }
+    }
+    &:before {
+      font-size: 18px;
+      color: #ffffff;
+      fill: #ffffff;
+    }
+  }
+  &__link {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.035em;
+    color: #D1D1D1;
+    transition: .2s linear;
+    @media (any-hover: hover) {
+      &:hover {
+        color: #d9426b;
+      }
+    }
+    &:not(:last-of-type) {
+      @include adaptive-value-to('margin-right', 56, 10, 768);
+      @media (max-width: 768px) {
+        margin: 0 0 20px 0;
+      }
+    }
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+  &__locale {
+    @include adaptive-value-to('margin-left', 90, 15, 768);
+    @media (max-width: 768px) {
+      margin-left: 0;
+      position: absolute;
+      top: 25px;
+      right: 25px;
+    }
+    .select {
+      &__input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include adaptive-value('width', 62, 30, 1);
+        @include adaptive-value('height', 62, 30, 1);
+        background: rgba(253, 77, 124, 0.85);
+        border: 0;
+        color: #FFFFFF;
+        border-radius: 0;
+        padding: 0;
+        cursor: url('../images/icons/cursor-black.png') 10 8, auto;
+        span {
+          font-weight: 500;
+          font-size: 14px;
+          letter-spacing: 0.035em;
+          text-transform: uppercase;
+          @media (max-width: 768px) {
+            font-size: 12px;
+          }
+        }
+        i {
+          display: none;
+        }
+      }
+      &__dropdown {
+        top: 100%;
+        left: 0;
+        right: 0;
+        box-shadow: none;
+        border: 0;
+        border-radius: 0;
+      }
+      &__list {
+        width: 100%;
+      }
+      &__item {
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        display: flex;
+        color: #FFFFFF;
+        @include adaptive-value('height', 62, 30, 1);
+        justify-content: center;
+        align-items: center;
+        background: rgba(253, 77, 124, 0.45);
+        transition: 0.2s linear;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 0.035em;
+        cursor: url('../images/icons/cursor-black.png') 10 8, auto;
+        text-transform: uppercase;
+        &.selected {
+          display: none;
+        }
+        @media (max-width: 768px) {
+          font-size: 12px;
+        }
+        @media (any-hover: hover) {
+          &:hover {
+            background: rgba(253, 77, 124, 0.85);
+          }
+        }
+      }
+    }
+  }
+}

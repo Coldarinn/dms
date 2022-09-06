@@ -1,0 +1,44 @@
+.vacancy {
+  padding-top: calc(230 / 820 * 100vh);
+  position: relative;
+  z-index: 1;
+  &__container {
+    @media (max-width: 768px) {
+      padding: 0 20px;
+    }
+  }
+  &__body {
+    @media (min-width: 769px) {
+      padding-bottom: 20px;
+    }
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    &:not(:last-child) {
+      margin-bottom: 75px;
+    }
+  }
+  &__item {
+    height: 100%;
+    flex-basis: 28.4%;
+  }
+}
+
+.slider-vacancy {
+  max-width: calc(100vw - 20px);
+  overflow: hidden;
+  @media (min-width: 1141px) {
+    display: none;
+  }
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    > div {
+      flex: 1 0 300px;
+      @media (max-width: 540px) {
+        flex: 1 0 280px;
+      }
+    }
+  }
+}

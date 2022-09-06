@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport"
+         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto&display=swap"
+         rel="stylesheet">
+   <link rel="icon" href="images/logo.png" sizes="any" type="image/png">
+   <link rel="stylesheet" href="styles/styles.min.css">
+   <title>Delomain Studio</title>
+</head>
+<body class="ru">
+
+@@include('htmlBlocks/_loader.html')
+@@include('htmlBlocks/_header.html')
+<div class="background-animate">
+   <div class="background-animate__item"></div>
+   <div class="background-animate__item"></div>
+   <div class="background-animate__item"></div>
+   <div class="background-animate__item"></div>
+   <div class="background-animate__item"></div>
+   <div class="background-animate__item"></div>
+   <div class="background-animate__item"></div>
+</div>
+<div class="swiper-scrollbar">
+   <div class="swiper-scrollbar__item"></div>
+</div>
+<main class="main index-main">
+   <div class="main-tab">
+      <div class="fullpage"></div>
+      <div class="slider swiper-container">
+         <div class="swiper-wrapper">
+            <div data-da="fullpage,1,768" class="section fp-auto-height swiper-slide intro">
+               <div class="slide intro__container container">
+                  @@include('htmlBlocks/_intro.html')
+               </div>
+            </div>
+            <div data-da="fullpage,2,768" class="section fp-auto-height swiper-slide packages">
+               <div class="packages__container container">
+                  @@include('htmlBlocks/_packages.html')
+               </div>
+            </div>
+            <div data-da="fullpage,3,768" class="section fp-auto-height swiper-slide technology">
+               <div class="technology__container container">
+                  @@include('htmlBlocks/_technology.html')
+               </div>
+            </div>
+            <div data-da="fullpage,4,768" class="section fp-auto-height swiper-slide office">
+               <div class="office__container container">
+                  @@include('htmlBlocks/_office.html')
+               </div>
+               @@include('htmlBlocks/_office-footer.html')
+            </div>
+         </div>
+         @@include('htmlBlocks/_hieroglyphs.html')
+      </div>
+   </div>
+   <div class="main-tab" style="display: none">
+      <div class="portfolio">
+         <div class="portfolio__container container">
+            @@include('htmlBlocks/_portfolio.html')
+         </div>
+         @@include('htmlBlocks/_hieroglyphs.html')
+      </div>
+   </div>
+   <div class="main-tab" style="display: none">
+      @@include('htmlBlocks/_vacancy.html')
+   </div>
+   @@include('htmlBlocks/_hieroglyphs-touch.html')
+</main>
+@@include('htmlBlocks/_modals.html')
+@@include('htmlBlocks/_scripts.html')
+
+</body>
+</html>

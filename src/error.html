@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport"
+         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto&display=swap"
+         rel="stylesheet">
+   <link rel="icon" href="images/logo.png" sizes="any" type="image/png">
+   <link rel="stylesheet" href="styles/styles.min.css">
+   <title>Delomain Studio | ОШИБКА</title>
+</head>
+<body class="ru" style="background: #0f0f0f;">
+
+@@include('htmlBlocks/_header.html')
+<main class="main main-error">
+   <div class="error-page">
+      <div class="error-page__body">
+         <div class="error-page__num">
+            404
+         </div>
+         <div class="error-page__title">
+            эта страница не доступна
+         </div>
+         <div class="error-page__subtitle">
+            мы уже ищем решение
+         </div>
+         <a href="/" class="error-page__return return-link icon-right-arrow">
+            Вернуться
+         </a>
+      </div>
+   </div>
+   @@include('htmlBlocks/_hieroglyphs-touch.html')
+</main>
+@@include('htmlBlocks/_modals.html')
+@@include('htmlBlocks/_scripts.html')
+
+</body>
+</html>

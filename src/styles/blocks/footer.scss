@@ -1,0 +1,19 @@
+.footer {
+  height: 142px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(#0E0C0E, .7);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  animation: fade 2s 7.2s;
+  animation-fill-mode: forwards;
+  &.footer-packages {
+    background: transparent;
+    height: auto;
+  }
+}

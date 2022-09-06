@@ -1,0 +1,75 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.ttf?jy8z5f') format('truetype'),
+  url('../fonts/icomoon.woff?jy8z5f') format('woff'),
+  url('../fonts/icomoon.svg?jy8z5f#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='icon-']::before,
+[class*=' icon-']::before {
+  font-family: 'icomoon', sans-serif !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+.icon-questions-arrow:before {
+  content: '\e903';
+  color: #8a8a8a;
+}
+
+.icon-bitr:before {
+  content: '\e909';
+}
+
+.icon-dj:before {
+  content: '\e90a';
+}
+
+.icon-flask:before {
+  content: '\e910';
+}
+
+.icon-react:before {
+  content: '\e913';
+}
+
+.icon-tilda:before {
+  content: '\e908';
+}
+
+.icon-point--gray:before {
+  content: '\e906';
+  color: #8c8c8c;
+}
+
+.icon-point:before {
+  content: '\e907';
+  color: #d9436b;
+}
+
+.icon-right-arrow:before {
+  content: '\e904';
+}
+
+.icon-hieroglyph-1:before {
+  content: '\e900';
+}
+
+.icon-hieroglyph-2:before {
+  content: '\e901';
+}
+
+.icon-hieroglyph-3:before {
+  content: '\e902';
+}
+
+.icon-hieroglyph-4:before {
+  content: '\e905';
+}

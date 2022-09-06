@@ -1,0 +1,261 @@
+//==========ПОДКЛЮЧЕНИЕ ШРИФТОВ==========//
+
+@import './blocks/iconsFont';
+@import './blocks/fonts';
+
+//==========/ПОДКЛЮЧЕНИЕ ШРИФТОВ==========//
+
+//==========МИКСИН==========//
+
+$maxWidth: 1920;
+$maxWidthContainer: 1270;
+
+@import './blocks/mixin';
+
+//==========/МИКСИН==========//
+
+//==========ОБНУЛЕНИЕ И ОБЩИЕ ПАРАМЕТРЫ==========//
+
+:host([loading_]) paper-progress, #menuButton, #center, #end {
+  display: none;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #D1D1D1;
+  min-height: 100vh;
+  background: #151415;
+  cursor: url('../images/icons/cursor.png') 10 8, auto;
+  > .swiper-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  &.lock {
+    overflow: hidden;
+  }
+  &.ru {
+    font-family: 'Blender', sans-serif;
+    .header {
+      &__link {
+        font-size: 14px;
+      }
+    }
+    .intro {
+      &__desc {
+        @include adaptive-value('max-width', 550, 280, 1);
+      }
+      &__title {
+        @include adaptive-value('font-size', 32, 20, 1);
+        
+      }
+    }
+    .item-packages__title {
+      white-space: nowrap;
+    }
+    .categories-technology__title {
+      white-space: nowrap;
+    }
+    .error {
+      &__num {
+        margin-bottom: 0;
+      }
+      &__title {
+        font-size: 14px;
+        margin-bottom: 30px;
+      }
+      &__subtitle {
+        font-size: 14px;
+      }
+    }
+    .phone-modal {
+      &__socials {
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  &:not(.ru) {
+    .header {
+      &__link {
+        font-size: 10px;
+      }
+      &__logo {
+        @media (min-width: 769px) {
+          transform: translateX(45px);
+        }
+      }
+    }
+    .item-info-intro__title {
+      font-size: 12px;
+    }
+    .item-packages__title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .technology {
+      &__container {
+        @media (max-height: 700px) {
+          align-items: flex-start;
+        }
+      }
+    }
+    .categories-technology {
+      @media (max-height: 700px) {
+        padding-top: 0;
+      }
+      &__item {
+        max-width: 200px;
+        @media (max-width: 992px) {
+          max-width: none;
+        }
+      }
+      &__title {
+        white-space: nowrap;
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+    .list-card__text {
+      font-size: 10px;
+      letter-spacing: 0;
+    }
+    .list-card-about__hover {
+      right: -4px;
+      letter-spacing: 0;
+      font-size: 8px;
+    }
+    .links-footer__link {
+      font-weight: 400;
+      font-size: 11px;
+    }
+    .office-address__title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+}
+
+::selection {
+  background: rgba(#fff, .1);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: url('../images/icons/cursor-hover.png') 10 8, auto;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+  cursor: url('../images/icons/cursor-hover.png') 10 8, auto;
+}
+
+img {
+  max-width: 100%;
+  line-height: 0;
+}
+
+.ibg {
+  position: relative;
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+.fullpage {
+  z-index: 2;
+  .iScrollVerticalScrollbar {
+    display: none !important;
+  }
+}
+
+main {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  animation: fade 2s 7.2s;
+  animation-fill-mode: forwards;
+  position: relative;
+  z-index: 3;
+}
+
+//==========/ОБНУЛЕНИЕ И ОБЩИЕ ПАРАМЕТРЫ==========//
+
+
+//==========ОСНОВНАЯ СЕТКА==========//
+
+.container {
+  width: 100%;
+  min-height: 100%;
+  max-width: #{$maxWidthContainer + px};
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+//==========/ОСНОВНАЯ СЕТКА==========//
+
+//========ПОДКЛЮЧЕНИЕ ФАЙЛОВ СО СТИЛЯМИ========//
+
+@import './blocks/loader';
+@import './blocks/hieroglyphs';
+@import './blocks/bgAnim';
+@import '../../node_modules/swiper/swiper-bundle.css';
+@import './blocks/select';
+@import './blocks/header';
+@import './blocks/slider';
+@import './blocks/intro';
+@import './blocks/packages';
+@import './blocks/card';
+@import './blocks/vacancy';
+@import './blocks/technology';
+@import './blocks/about';
+@import './blocks/office';
+@import './blocks/portfolio';
+@import './blocks/footer';
+@import './blocks/btn';
+@import './blocks/error';
+@import './blocks/modals';
+@import './blocks/return-link';
+
+////========/ПОДКЛЮЧЕНИЕ ФАЙЛОВ СО СТИЛЯМИ========//

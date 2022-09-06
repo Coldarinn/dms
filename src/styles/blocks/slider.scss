@@ -1,0 +1,107 @@
+.slider {
+  position: relative;
+  @media (max-width: 768px) {
+    display: none;
+  }
+  > .swiper-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    z-index: -1;
+    @media (max-width: 992px) {
+      z-index: 1 !important;
+    }
+    > .swiper-slide {
+      width: 100%;
+      flex: 0 0 100%;
+    }
+  }
+}
+
+.swiper-slide {
+  @media (max-width: 768px) {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.swiper-scrollbar {
+  @include adaptive-value-to('top', 117, 55, 768);
+  @include adaptive-value-to('width', 553, 280, 1);
+  background: rgba(253, 77, 124, 0.28);
+  position: absolute;
+  &.show {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    animation: fade 2s 7.2s;
+    animation-fill-mode: forwards;
+  }
+  z-index: 12;
+  @media (max-width: 768px) {
+    z-index: 10;
+  }
+  &:before {
+    @media (max-width: 768px) {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: -1;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 100%;
+      background: rgba(15, 15, 15, 0.35);
+      backdrop-filter: blur(2px);
+    }
+  }
+  &__item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #FD4D7C;
+    transition: 0.2s linear;
+    @media (min-width: 769px) {
+      display: none;
+    }
+  }
+  .swiper-pagination-progressbar-fill {
+    display: inline-block;
+    background: #CA3F65;
+    height: 100%;
+  }
+  @media (min-width: 769px) {
+    height: 2px;
+    width: 553px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @media (max-width: 768px) {
+    position: fixed;
+    width: 1px;
+    height: calc(100vw - 40px);
+    left: 50%;
+    top: calc(100vh - 100vw + 20px);
+    transform: translateY(50%) rotate(-90deg);
+  }
+}
+
+.swiper-wrapper {
+  @media (max-width: 768px) {
+    transition: 0.2s linear;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+}

@@ -1,0 +1,113 @@
+.hieroglyphs {
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  padding: 142px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  &.show {
+    opacity: 0;
+    animation: fade 1s 7.2s forwards;
+    .icon-hieroglyph {
+      &-1 {
+        animation: item-fade 0.4s linear 7.8s, item-fade-out 0.4s linear 8.2s;
+      }
+      &-2 {
+        animation: item-fade 0.4s linear 8s, item-fade-out 0.4s linear 8.4s;
+      }
+      &-3 {
+        animation: item-fade 0.4s linear 8.2s, item-fade-out 0.4s linear 8.6s;
+      }
+      &-4 {
+        animation: item-fade 0.4s linear 8.4s, item-fade-out 0.4s linear 8.8s;
+      }
+    }
+  }
+  transition: 1s linear;
+  @media (max-width: 992px) {
+    z-index: -1 !important;
+  }
+  @media (any-hover: hover) {
+    &.scrolled {
+      padding: 142px 15px 0;
+    }
+    &.translate {
+      right: calc((100vw - 1240px) / 2 + 27px);
+      transform: translate(0%, -50%);
+      padding-top: 264px / 820px * 100vh;
+      padding-bottom: 300px / 820px * 100vh;
+    }
+  }
+  &__item {
+    color: #121212;
+    transition: 0.2s linear;
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        color: #d9426b;
+        &:before {
+          stroke: #d9426b;
+        }
+      }
+    }
+    &:before {
+      font-size: 103px;
+    }
+  }
+}
+
+.hieroglyphs-touch {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  transition: 1s linear;
+  @include adaptive-value('padding-top', 142, 66, 1);
+  @media (min-width: 769px) {
+    display: none;
+  }
+  &__col {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__item {
+    @include adaptive-value('font-size', 100, 50, 1);
+    color: #111111;
+    &:first-child {
+      color: rgba(92, 25, 43, 0.35);
+    }
+  }
+}
+
+@keyframes item-fade {
+  0% {
+    color: #121212;
+  }
+  100% {
+    color: #d9426b;
+  }
+}
+
+@keyframes item-fade-out {
+  0% {
+    color: #d9426b;
+  }
+  100% {
+    color: #121212;
+  }
+}
